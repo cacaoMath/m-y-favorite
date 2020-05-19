@@ -9,7 +9,7 @@ export default {
     methods:{
         twitterShare(){
            //シェアする画面を設定
-            var shareURL = 'https://twitter.com/intent/tweet?text=' + "この動画がおすすめ!!" + "%20%23I like ..." + '&url=' + this.$parent.url;
+            var shareURL = 'https://twitter.com/intent/tweet?text=' + "この動画がおすすめ!!" + "%20%23 I like ..." + this.$parent.url;
            //シェア用の画面へ移行
             location.href = shareURL
         }

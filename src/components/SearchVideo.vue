@@ -83,7 +83,7 @@ import axios from 'axios'
             },
 
             add_list: function (value) {
-                this.favlist.push("https://www.youtube.com/watch?v=" + value + " ")
+                this.favlist.push(" https://www.youtube.com/watch?v=" + value )
                 alert(this.favlist)
                 this.$parent.url = this.favlist
             }
@@ -94,16 +94,16 @@ import axios from 'axios'
 <style>
 
 
-    .body {
+    template{
         color: #000000;
-        margin-right: auto; 
-        margin-left : auto;
+        text-align: center;
     }
 
-    .content{
-        overflow:auto;
-        height:600px;
-        width:700px;
+    .content {
+        overflow: auto;
+        height: 600px;
+        width: 700px;
+        text-align: center;
     }
 
     #add_btn {
