@@ -23,7 +23,7 @@ Vue.use(VueAxios, axios)
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
    },
   {
-    path: '/',
+    path: '/video',
     name: 'video',
     component: () => import('../views/Video.vue')
    }

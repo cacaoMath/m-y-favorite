@@ -7,9 +7,25 @@
             <router-link to="/video">Search Video</router-link>
         </div>
          -->
+        <ShareTwitter />
+        <SearchVideo />
         <router-view />
     </div>
 </template>
+
+
+<script>
+    import SearchVideo from '@/components/SearchVideo.vue'
+    import ShareTwitter from '@/components/ShareTwitter.vue'
+
+    export default {
+        name: 'app',
+        components: {
+            SearchVideo,
+            ShareTwitter
+        }
+    }
+</script>
 
 <style>
 #app {

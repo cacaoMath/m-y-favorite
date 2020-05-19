@@ -6,7 +6,7 @@
         </div>
 
         <br>
-        <input size="40" v-model="keyword" placeholder="検索キーワードを入力">
+        <input size="40" v-model="keyword" placeholder="Please input keyword you like ...">
         <button @click="search_video">検索</button>
         <table cellspacing="0" cellpadding="5" v-show="results">
             <tr>
