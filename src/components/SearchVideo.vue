@@ -13,28 +13,28 @@
         <div class="content">
             <table cellspacing="0" cellpadding="5" v-show="results">
                 <tr>
-                    <th width="50">
+                    <th width= 10%>
                         <font>No</font>
                     </th>
-                    <th width="200">
+                    <th width=30%>
                         <font>Video</font>
                     </th>
-                    <th width="700">
+                    <th width=60%>
                         <font>Contents</font>
                     </th>
                 </tr>
 
                 <tr v-for="(movie, index) in results" v-bind:key="movie.id.videoId">
                     <!-- No -->
-                    <td valign="top" width="50">{{ index + 1 }}</td>
+                    <td valign="top" width=10%>{{ index + 1 }}</td>
                     <!-- Video -->
-                    <td valign="top" width="300">
+                    <td valign="top" width=30%>
                         <a v-bind:href="'https://www.youtube.com/watch?v=' + movie.id.videoId">
                             <img width="300" height="200" v-bind:src="movie.snippet.thumbnails.medium.url">
                         </a>
                     </td>
                     <!-- titleとdescription -->
-                    <td align="left" valign="top" width="700">
+                    <td align="left" valign="top" width=60%>
                         <font size="5" color="#c71585"><b>{{ movie.snippet.title }}</b></font>
                         <button @click="add_list(movie.id.videoId)" id="add_btn">Add</button>
                         <br>
@@ -93,17 +93,13 @@ import axios from 'axios'
 
 <style>
 
-
-    template{
-        color: #000000;
-        text-align: center;
-    }
-
     .content {
-        overflow: auto;
-        height: 600px;
-        width: 700px;
-        text-align: center;
+        overflow-y: scroll;
+        width: 80%;
+        height: 50%;
+        margin: 0 auto;
+        max-width: 900px;
+        max-height: 600px;
     }
 
     #add_btn {
@@ -126,17 +122,17 @@ import axios from 'axios'
 
     table {
         border-collapse: collapse;
-        border: solid 2px #c71585; /*表全体を線で囲う*/
+        border: solid 2px 2px #ffffff; /*表全体を線で囲う*/
     }
 
     table th {
         color: #fff0f5; /*文字色*/
-        background: #ff69b4; /*背景色*/
+        background: #009bbf; /*背景色*/
         border: dashed 1px #c71585;
     }
 
     table td {
-        background: #fff0f5;
+        background: #009bb9;
         border: dashed 1px #c71585;
     }
 </style>
