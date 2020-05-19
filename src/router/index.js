@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import axios from 'axios' //追記
 import VueAxios from 'vue-axios' //追記
 
+//ここをいじることでurlにルートをつけられる
 Vue.use(VueRouter)
 Vue.use(VueAxios, axios)
 

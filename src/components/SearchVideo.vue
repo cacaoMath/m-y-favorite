@@ -1,8 +1,10 @@
 ﻿<template>
     <div>
-        <p>AAAAAAAAAAA
-        <div><font size="6" color="#c71585">YouTube Search list (Vue.js CLI)</font></div>
-        aa
+        <div>
+            <font size="6" color="#c71585">I Like ...</font>
+            <p>あなたが好きな動画をみんなにシェアしよう!!</p>
+        </div>
+
         <br>
         <input size="40" v-model="keyword" placeholder="検索キーワードを入力">
         <button @click="search_video">検索</button>
@@ -47,7 +49,7 @@ import axios from 'axios'
         data: function () {
             return {
                 results: null,
-                keyword: "nonkapibara",
+                keyword: "",
                 order: "viewCount", // リソースを再生回数の多い順に並べます。
                 params: {
                     q: "", // 検索クエリを指定します。
