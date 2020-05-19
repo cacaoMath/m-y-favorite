@@ -23,6 +23,11 @@
         components: {
             SearchVideo,
             ShareTwitter
+        },
+        data: function () {
+            return {
+                url:""
+            };
         }
     }
 </script>
