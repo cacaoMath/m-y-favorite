@@ -4,6 +4,10 @@ import router from './router'
 import store from './store'
 import axios from 'axios' //追記
 import VueAxios from 'vue-axios' //追記
+import jQuery from 'jquery'//jQuery使う用
+global.jquery = jQuery
+global.$ = jQuery
+window.$ = window.jQuery = require('jquery')
 
 Vue.config.productionTip = false
 
