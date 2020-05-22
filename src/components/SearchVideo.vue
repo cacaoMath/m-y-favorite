@@ -18,7 +18,7 @@
                     <td valign="top">
                         
                         <div class="videoInfo">
-                            <a v-bind:href="'https://www.youtube.com/watch?v=' + movie.id.videoId">
+                            <a v-bind:href="'https://www.youtube.com/watch?v=' + movie.id.videoId" target="_blank">
                                 <img class="imgs" v-bind:src="movie.snippet.thumbnails.medium.url">
                             </a>
                             
@@ -30,7 +30,7 @@
                         <div class="btn">
                             <a @click="watchMovie(movie.id.videoId)" id="btn">Watch</a>|
                             <a @click="explainMovie(movie.snippet.description)" id="btn">Info</a>|
-                            <a @click="twitterShare(movie.id.videoId)" id="btn">Share</a>
+                            <a @click="getTitle(movie.snippet.title), twitterShare(movie.id.videoId)" id="btn">Share</a>
                         </div>
                     </td>
                 </tr>
@@ -48,7 +48,7 @@
         name: "SearchVideo",
         data: function () {
             return {
-                favlist:[],
+                favName:"",
                 results: null,
                 keyword: "",
                 order: "viewCount", // リソースを再生回数の多い順に並べます。
@@ -56,7 +56,7 @@
                     q: "", // 検索クエリを指定します。
                     part: "snippet",
                     type: "video",
-                    maxResults: "20", // 最大検索数
+                    maxResults: "10", // 最大検索数
                     key: "AIzaSyCb2iPZ119TGuksYAFI7Rjk0xIOxi8-lBY"
                 }
             };
@@ -81,16 +81,23 @@
                 alert(value)
             },
 
+            getTitle(value) {
+                this.favName = value;
+            },
+
             watchMovie(value) {
                 var url = "https://www.youtube.com/watch?v=" + value
-                location.href = url
+                
+                window.open(url, "_blank")
             },
 
             twitterShare(value) {
                 //シェアする画面を設定
-                var shareURL = 'https://twitter.com/intent/tweet?text=' + "私のおすすめ!!" + "&url=https://www.youtube.com/watch?v=" +value;
+                var shareURL = 'https://twitter.com/intent/tweet?text=' + "私のおすすめ!!" + this.favName + "&url=https://www.youtube.com/watch?v=" + value;
                 //シェア用の画面へ移行
-                location.href = shareURL
+                //location.href = shareURL
+                //別タブで開く
+                window.open(shareURL, "_blank")
             },
 
         }
@@ -112,7 +119,6 @@
 
 
         .content {
-
             width: 100%;
         }
 
@@ -122,22 +128,12 @@
         }
 
         table {
-            border-collapse: collapse;
-            border: solid 2px 2px #ffffff; /*表全体を線で囲う*/
+            border-collapse: separate;
+            border-spacing: 10px;
             margin: auto;
         }
 
-            table th {
-                color: #fff0f5; /*文字色*/
-                background: #009bbf; /*背景色*/
-                border: dashed 1px #c71585;
-            }
-
             table td {
-                background: #009bb9;
-                border: dashed 1px #c71585;
-
-                display: inline-block;
                 background-color: #fff;
                 margin: 5px;
                 padding-bottom: 10px;
@@ -216,8 +212,27 @@
         margin-right: 10px;
         color: #6AD3DB;
         text-decoration: none;
+        border-radius: 2px;
     }
 
+        #btn:hover {
+            background-color: #9caeb7;
+        }
+
+        /*safari用cssハック*/
+    _:lang(x) + _:-webkit-full-screen-document, .header {
+        background: #87B9C4;
+        position: sticky;
+        height: 120px;
+        z-index: 999;
+        width: 100%;
+        top: 0px;
+        padding-top: 5px;
+        border-radius: 2px;
+        -moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+        -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+    }
 
 
     #search_btn {
@@ -235,6 +250,10 @@
         -webkit-tap-highlight-color: transparent;
         transition: .3s ease-out; /*変化を緩やかに*/
     }
+
+        #search_btn:hover {
+            background-color: #6AD3DB;
+        }
 
     .searchBox {
         padding: 2px 5px; /*ボックスを大きくする*/
