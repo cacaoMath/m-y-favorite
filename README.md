@@ -1,5 +1,10 @@
 # m-y-favorite
 
+
+## webアプリI Like... 
+#web1weekにおける制作物． 自身の初めてのwebアプリ
+検索ボックスにキーワードを入れるとYouTubeにてそのキーワードに関するものが検索，表示される．
+
 ## Project setup
 ```
 yarn install
@@ -22,3 +27,4 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
