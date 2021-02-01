@@ -2,6 +2,7 @@
 
 
 ## webアプリI Like... 
+[リンク](https://crieit.net/boards/web1week-202005/I-like-YouTube)
 #web1weekにおける制作物． 自身の初めてのwebアプリ
 検索ボックスにキーワードを入れるとYouTubeにてそのキーワードに関するものが検索，表示される．
 
